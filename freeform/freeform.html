@@ -1,0 +1,214 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeForm | Practicing FrontEnd</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        html, body, ul {
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1em 5em;
+            box-sizing: border-box;
+            box-shadow: 0em -1em 2em black;
+        }
+        nav li {
+            list-style-type: none;
+            color: gray;
+        }
+        #attention {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+        }
+        #attention-body {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            /* -50% to center horizontally */
+            transform: translate(50%, -50%);
+        }
+        #attention-name {
+            border: 2px solid black;
+            padding: .5em 1em;
+            margin: 1.5em 0 0 0;
+            display: flex;
+            align-items: center;
+        }
+        #attention-name h1 { letter-spacing: .5em; display: inline-block; }
+        #attention-side {
+            width: 2px;
+            height: 5em;
+            background: black;
+            display: inline-block;
+            margin: 0 1em 0 .5em;
+        }
+        .body-item {
+            width: 100%;
+            display: flex;
+        }
+        .body-item > div {
+            text-align: left;
+        }
+        .body-item h2, p {
+            margin: .2em 0;
+        }
+        .body-item ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .body-item ul li {
+            color: gray;
+            list-style-type: none;
+        }
+        .body-item hr {
+            width: 5%;
+            /* a little thicc */
+            height: .2em;
+            background: black;
+            margin: 0;
+            padding: 0;
+        }
+        .body-item .text {
+            padding: 2em 4em 8em 4em;
+            box-sizing: border-box;
+        }
+        #middle-body-item {
+            display: flex;
+        }
+        #middle-body-item div:nth-child(1) {
+            flex-grow: 1;
+        }
+        #middle-body-item div:nth-child(3) {
+            flex-grow: 1;
+        }
+        #middle-body-item .text {
+            padding: 5em 3em;
+        }
+        #middle-body-item h2::before {
+            content: '"';
+            color: gray;
+        }
+        #middle-body-item h2::after {
+            content: '"';
+            color: gray;
+        }
+        .body-item button {
+            transition: .5s ease;
+            cursor: pointer;
+        }
+        .body-item button:hover {
+            /* will never use important in an actual website */
+            background: white !important;
+            color: black !important;
+            opacity: .5;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <li>lorem</li>
+        <li>LOGO</li>
+        <li>lorem</li>
+    </nav>
+    <section id="attention">
+        <div id="attention-body">
+            <p>LOREM</p>
+            <div id="attention-name">
+                <h1>NOMA</h1>
+                <div id="attention-side"></div>
+                <h1>AUTHENTIC</h1>
+            </div>
+        </div>
+    </section>
+    <section class="body-item">
+        <div style="background: url('fog.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: auto; width: 70%; position: relative;">
+            <div style="position: absolute; top: 50%; right: 50%; transform: translate(50%, -50%); text-align: center;">
+                <button style="color: white; border: 1px solid white; background: transparent; padding: 1em 1.5em;">&gt;</button>
+                <p style="letter-spacing: .3em; color: white;">PLAY VIDEO</p>
+            </div>
+        </div>
+        <!-- CREDIT TO AUTHOR(PICTURE): https://unsplash.com/photos/37ZuGYD3JOk?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+        <div style="width: 30%;" class="text">
+            <h2>Concept</h2>
+            <hr>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti praesentium atque repudiandae culpa enim, alias mollitia officiis repellat asperiores tenetur nostrum natus eligendi, ipsa autem quasi. Rerum tenetur ipsa earum.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, itaque quo neque quam iusto ad iure nemo. Impedit quibusdam obcaecati odit odio. Laboriosam officiis dolorem sed necessitatibus totam, quisquam obcaecati?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, itaque quo neque quam iusto ad iure nemo. Impedit quibusdam obcaecati odit odio. Laboriosam officiis dolorem sed necessitatibus totam, quisquam obcaecati?
+            </p>
+            <ul>
+                <li>lorem</li>
+                <li>lorem</li>
+                <li>lorem</li>
+            </ul>
+        </div>
+    </section>
+    <section class="body-item" id="middle-body-item">
+        <div style="background: url('washing.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: auto; width: 33.33%;"></div>
+        <!-- CREDIT TO AUTHOR(PICTURE): https://unsplash.com/photos/8cGmLVFJaLg?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+        <div style="width: 20%;" class="text">
+            <h2>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi natus explicabo id aut repudiandae, minus incidunt quidem optio cum aperiam recusandae expedita assumenda enim eum soluta mollitia tenetur nihil tempora!
+            </h2>
+        </div>
+        <div style="background: url('carrots.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: auto; width: 33.33%;"></div>
+        <!-- CREDIT TO AUTHOR(PICTURE): https://unsplash.com/photos/wFlOM6Dxuc8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+    </section>
+    <section class="body-item">
+        <div style="width: 30%;" class="text">
+            <h2>Concept</h2>
+            <hr>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti praesentium atque repudiandae culpa enim, alias mollitia officiis repellat asperiores tenetur nostrum natus eligendi, ipsa autem quasi. Rerum tenetur ipsa earum.
+            </p>
+            <ul>
+                <li>lorem</li>
+                <li>lorem</li>
+                <li>lorem</li>
+            </ul>
+        </div>
+        <div style="background: url('bison.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: auto; width: 70%;"></div>
+        <!-- CREDI TO AUTHOR(PICTURE): https://unsplash.com/photos/o9JIOoeOgJM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+    </section>
+    <section class="body-item">
+        <div style="background: url('mountain.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: auto; width: 70%;"></div>
+        <!-- CREDIT TO AUTHOR(PICTURE): https://unsplash.com/photos/kbKEuU-YEIw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+        <div style="display: flex; flex-direction: column; width: 30%;">
+            <div style="background: url('background.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 5em; width: auto;"></div>
+            <div class="text">
+                <h2>Concept</h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti praesentium atque repudiandae culpa enim, alias mollitia officiis repellat asperiores tenetur nostrum natus eligendi, ipsa autem quasi. Rerum tenetur ipsa earum.
+                </p>
+                <ul>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
