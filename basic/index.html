@@ -7,16 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic | FrontendPractice</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet"> 
+
+    <!-- STYlESHEET -->
     <style>
         :root {
             --text: rgb(46, 41, 41);
             --background: rgb(247, 221, 225);
+            scroll-behavior: smooth;
         }
         html, body, ul, h2, h3, h4, h5, h6 {
             margin: 0;
             padding: 0;
         }
+        h1, h2, h3, h4, h5, h6, strong, li {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 5em;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        h4 {
+            font-size: 1em;
+        }
+        button { cursor: pointer; }
         body {
+            font-family: 'Times New Roman', Times, serif;
             color: var(--text);
             background: var(--background);
             padding: 2em 4em;
@@ -66,10 +91,14 @@
             word-break: break-all;
         }
         #attention-content {
+            max-width: 50%;
             position: absolute;
             top: 50%;
             left: 5%;
             transform: translateY(-50%);
+        }
+        #attention-content h1 {
+            margin: .5em 0;
         }
         .first-row {
             width: 33.33%;
@@ -77,18 +106,109 @@
             /* might mess up the relative div that is meant to center the + symbol */
             display: flex;
             align-items: center;
+            padding: 5em 0;
+            box-sizing: border-box;
         }
-        .first-row h2 {
+        .first-row h1 {
+            font-size: 4em;
+            margin: 0;
             width: 100%;
             text-align: center;
+            z-index: 2;
+        }
+        .first-row .image {
+            opacity: .5 !important;
         }
         #content-first-row {
             width: 100%;
             display: flex;
         }
+        #blog {
+            background: white; display: flex; flex-wrap: wrap; padding: 5em 4em 3em 4em;
+        }
+        #blog > div {
+            padding: 0 3em 8em 3em;
+            box-sizing: border-box;
+        }
+        #blog > div h3, p, strong {
+            word-break: break-all;
+        }
+        .light {
+            color: gray;
+        }
+        #contact {
+            background: navy;
+            color: var(--background);
+            position: relative;
+            padding: 8em 0;
+        }
+        #contact div:nth-child(2) {
+            z-index: 2;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
+        #contact button {
+            margin: 1em 0;
+            border: 1px solid orangered;
+            background: transparent;
+            color: orangered;
+            padding: .5em 1.5em;
+            transition: .5s linear;
+        }
+        #contact button:hover {
+            background: orangered;
+            color: white;
+            opacity: .5;
+            transform: translateY(-5px); 
+        }
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2em;
+        }
+        footer ul li {
+            display: inline-block;
+            list-style-type: none;
+        }
+        .image {
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        .dark {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgb(0, 0, 0, .2);
+            z-index: 1;
+        }
+        #scrollup {
+            cursor: pointer;
+            position: fixed;
+            bottom: 10;
+            right: 5;
+            background: white;
+            color: black;
+            border: none;
+            padding: 1em;
+            transition: .5s ease;
+        }
+        #scrollup:hover {
+            transform: translateY(-2px);
+            opacity: .5;
+        }
     </style>
 </head>
 <body>
+    <div id="scrollup">
+        <strong>^</strong>
+    </div>
     <nav>
         <h2 id="logo">BASIC</h2>
         <ul>
@@ -102,49 +222,143 @@
     </nav>
     <section id="attention">
         <section id="attention-content">
-            <p class="little">WELCOME</p>
+            <strong class="little">WELCOME</strong>
             <hr>
             <h1>Great experiences build great brands.</h1>
-            <p>Through brand strategy and design, we craft experiences that help brans stand out as well as stand for something.</p>
+            <p class="light">Through brand strategy and design, we craft experiences that help brans stand out as well as stand for something.</p>
             <!-- FOR NOW GOING TO USE A BUTTON, later use  svg in div with text below it -->
-            <button>PLAY</button>
         </section>
     </section>
     <section id="content-first-row">
         <div style="color: var(--text); background: white;" class="first-row">
-            <h2>We Do</h2>
+            <h1>We Do</h1>
         </div>
         <div style="position: relative; width: 66.66%;">
-            <h2 style="position: absolute; right: 50%; top: 50%; transform: translate(50%, -50%); color: white;">+</h2>
-            <div style="color: white; background: var(--text); width: 50%; float: left;" class="first-row">
-                <h2>Digital</h2>
+            <h2 style="position: absolute; right: 50%; top: 50%; transform: translate(50%, -50%); color: white; z-index: 10000; font-size: 5em;">+</h2>
+            <div style="color: white; background: var(--text); width: 50%; float: left; background: url('https://images.unsplash.com/photo-1538170819641-15b741105cb3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');" class="first-row image">
+                <div class="dark"></div>
+                <!-- image credit: https://unsplash.com/photos/JqZ7q_S3xOE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
+                <h1>Digital</h1>
             </div>
-            <div style="color: white; background: var(--text); width: 50%;" class="first-row">
-                <h2>Brand</h2>
+            <div style="color: white; background: var(--text); width: 50%; background: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" class="first-row image">
+                <div class="dark"></div>
+                <!-- image credit: https://unsplash.com/photos/s9CC2SKySJM -->
+                <h1>Brand</h1>
             </div>
         </div>
     </section>
     <section id="content-second-row" style="width: 100%; background: white; min-height: 30em; height: 30em; display: flex;">
         <!-- not sure if on hover they added some text??????????? -->
-        <div style="width: 50%; background: rgb(212, 186, 190); height: 100%;"></div>
-        <div style="width: 49.5%; background: rgb(212, 186, 190); height: 100%;"></div>
+        <div style="width: 50%; background: url('https://images.unsplash.com/photo-1626337259107-8d1300f95c6a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'); height: 100%;" class="image"></div>
+        <!-- image credit: https://unsplash.com/photos/OAHHu6ZQAms -->
+        <div style="width: 50%; background: url('https://images.unsplash.com/photo-1626346899627-a11b5191065c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'); height: 100%;" class="image"></div>
+        <!-- image credit: https://unsplash.com/photos/fM0XW9YpwCU -->
     </section>
     <section style="position: relative; width: 100%; background: white; min-height: 15em;">
         <section style="position: absolute; top: -10; width: 100%; height: 100%; display: flex;">
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 24.1%;"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 24.1%;" class="image"></div>
         </section>
     </section>
     <section style="position: relative; width: 100%; background: white; height: 15em;">
         <section style="position: absolute; top: -10; height: 16em; width: 100%; display: flex;">
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 25%;"></div>
-            <div style="background: var(--text); height: 100%; width: 24.1%;"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 25%;" class="image"></div>
+            <div style="height: 100%; width: 24.1%;" class="image"></div>
         </section>
     </section>
-    <h3 style="width: 100%; text-align: center; margin-top: 1.5em;">VIEW ALL WORK<span>&gt;</span></h3>
+    <h4 style="width: 100%; text-align: center; margin: 1.5em 0;">VIEW ALL WORK<span>&gt;</span></h4>
+    <section id="blog">
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <p class="light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at praesentium tenetur voluptate officia quos reiciendis doloribus, consequatur doloremque pariatur deleniti ullam sed incidunt voluptates aspernatur obcaecati dolore animi eligendi.
+            </p>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <p class="light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at praesentium tenetur voluptate officia quos reiciendis doloribus, consequatur doloremque pariatur deleniti ullam sed incidunt voluptates aspernatur obcaecati dolore animi eligendi.
+            </p>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <p class="light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at praesentium tenetur voluptate officia quos reiciendis doloribus, consequatur doloremque pariatur deleniti ullam sed incidunt voluptates aspernatur obcaecati dolore animi eligendi.
+            </p>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+        <div style="width: 25%">
+            <strong style="display: block;">WORK<span class="light"> / 02.08.2016</span></strong>
+            <h3>BASIC Brings Brand Storytelling to...</h3>
+            <p class="light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at praesentium tenetur voluptate officia quos reiciendis doloribus, consequatur doloremque pariatur deleniti ullam sed incidunt voluptates aspernatur obcaecati dolore animi eligendi.
+            </p>
+            <strong style="display: block;">READ MORE</strong>
+        </div>
+    </section>
+    <h4 style="width: 100%; text-align: center; margin: 1.5em 0;">VIEW ALL WORK<span>&gt;</span></h4>
+    <section id="contact" class="image">
+        <div class="dark"></div>
+        <div>
+            <h2>Want to work with us?</h2>
+            <button>GET IN TOUCH</button>
+        </div>
+    </section>
+    <footer>
+        <p>&copysr; 2014 LoremIpsum Anc. All Rights Reserved</p>
+        <strong>Some Text Is Supposed To Go Here</strong>
+        <ul>
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+        </ul>
+    </footer>
+    <script>
+        // window.scrollTo(0, 1000);
+        const images = document.querySelectorAll('.image'); 
+        images.forEach(async item => {
+            const first_random = Math.floor(Math.random() * 2000);
+            const second_random = Math.floor(Math.random() * 900);
+            var response = await fetch('https://source.unsplash.com/random/' + first_random + 'x' + second_random);
+            console.log(response['url']);
+            item.style.background = "url('" + response['url'] + "')";
+        })
+        const scrollup = document.querySelector('#scrollup');
+        scrollup.addEventListener('click', function() {
+            window.scrollTo(0, 0);
+        })
+    </script>
 </body>
 </html>
