@@ -1,0 +1,150 @@
+<!-- 
+    For this practice website, I am trying to reduce the use of flexbox.
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic | FrontendPractice</title>
+    <style>
+        :root {
+            --text: rgb(46, 41, 41);
+            --background: rgb(247, 221, 225);
+        }
+        html, body, ul, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            color: var(--text);
+            background: var(--background);
+            padding: 2em 4em;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            /* same padding bottom as top from body */
+            margin-bottom: 2em;
+        }
+        nav ul {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        nav ul li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 0 1em;
+            transition: .5s linear;
+        }
+        nav ul li:hover {
+            opacity: .5;
+            text-decoration: underline;
+        }
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        #attention {
+            width: 100%;
+            height: 100vh;
+            background: rgb(223, 203, 203);
+            text-align: left;
+            position: relative;
+        }
+        #attention hr {
+            width: 5%;
+            margin: 0;
+        }
+        #attention p:nth-child(2) {
+            max-width: 50%;
+            word-break: break-all;
+        }
+        #attention-content {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+        }
+        .first-row {
+            width: 33.33%;
+            height: 5em;
+            /* might mess up the relative div that is meant to center the + symbol */
+            display: flex;
+            align-items: center;
+        }
+        .first-row h2 {
+            width: 100%;
+            text-align: center;
+        }
+        #content-first-row {
+            width: 100%;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2 id="logo">BASIC</h2>
+        <ul>
+            <li><a href="#">OUR WORK</a></li>
+            <li><a href="#">WHAT WE DO</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">NEWS & VIEWS</a></li>
+            <li><a href="#">CAREERS</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+    <section id="attention">
+        <section id="attention-content">
+            <p class="little">WELCOME</p>
+            <hr>
+            <h1>Great experiences build great brands.</h1>
+            <p>Through brand strategy and design, we craft experiences that help brans stand out as well as stand for something.</p>
+            <!-- FOR NOW GOING TO USE A BUTTON, later use  svg in div with text below it -->
+            <button>PLAY</button>
+        </section>
+    </section>
+    <section id="content-first-row">
+        <div style="color: var(--text); background: white;" class="first-row">
+            <h2>We Do</h2>
+        </div>
+        <div style="position: relative; width: 66.66%;">
+            <h2 style="position: absolute; right: 50%; top: 50%; transform: translate(50%, -50%); color: white;">+</h2>
+            <div style="color: white; background: var(--text); width: 50%; float: left;" class="first-row">
+                <h2>Digital</h2>
+            </div>
+            <div style="color: white; background: var(--text); width: 50%;" class="first-row">
+                <h2>Brand</h2>
+            </div>
+        </div>
+    </section>
+    <section id="content-second-row" style="width: 100%; background: white; min-height: 30em; height: 30em; display: flex;">
+        <!-- not sure if on hover they added some text??????????? -->
+        <div style="width: 50%; background: rgb(212, 186, 190); height: 100%;"></div>
+        <div style="width: 49.5%; background: rgb(212, 186, 190); height: 100%;"></div>
+    </section>
+    <section style="position: relative; width: 100%; background: white; min-height: 15em;">
+        <section style="position: absolute; top: -10; width: 100%; height: 100%; display: flex;">
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 24.1%;"></div>
+        </section>
+    </section>
+    <section style="position: relative; width: 100%; background: white; height: 15em;">
+        <section style="position: absolute; top: -10; height: 16em; width: 100%; display: flex;">
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 25%;"></div>
+            <div style="background: var(--text); height: 100%; width: 24.1%;"></div>
+        </section>
+    </section>
+    <h3 style="width: 100%; text-align: center; margin-top: 1.5em;">VIEW ALL WORK<span>&gt;</span></h3>
+</body>
+</html>
