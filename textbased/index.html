@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Based | Praticing Frontend</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <strong id="logo">LOGO</strong>
+    <section id="intro">
+        <h1 class="hidden">Lorem Ipsum</h1>
+        <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
+        <button class="borderline-button hidden">Continue</button>
+    </section>
+    <section id="intro-options" class="hidden">
+        <div class="container">
+            <div class="info-container">
+                <h2>Section Title</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi ipsam consequatur, ipsum qui consequuntur nesciunt,</p> 
+            </div>
+        </div>
+        <div class="container scrollable">
+            <div class="info-container">
+                <h2>Section Title</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi ipsam consequatur, ipsum qui consequuntur nesciunt,</p> 
+            </div>
+            <div class="scrollable-container">
+                <div class="scrollable-info">
+                    <div class="scrollable-item image">
+                        <div class="scrollable-cover"></div>
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item image">
+                        <div class="scrollable-cover"></div>
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item image">
+                        <div class="scrollable-cover"></div>
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item image">
+                        <div class="scrollable-cover"></div>
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container scrollable">
+            <div class="info-container">
+                <h2>Section Title</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi ipsam consequatur, ipsum qui consequuntur nesciunt,</p> 
+            </div>
+            <div class="scrollable-container blog">
+                <div class="scrollable-info">
+                    <div class="scrollable-item">
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item">
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item">
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                    <div class="scrollable-item">
+                        <strong>LOREM IPSUM</strong>
+                        <h3>LOREM IPSUM</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container scrollable">
+            <div class="info-container">
+                <h2>Section Title</h2>
+                <hr>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi ipsam consequatur, ipsum qui consequuntur nesciunt,</p> 
+            </div>
+        </div>
+    </section>
+    <script>
+
+        const scrollables = document.querySelectorAll('.scrollable');
+        scrollables.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                item.querySelector('.scrollable-container .scrollable-info').style.top = "85%";
+            })
+            item.addEventListener('mouseleave', function() {
+                item.querySelector('.scrollable-container .scrollable-info').style.top = "90%";
+            })
+        })
+
+        const images = document.querySelectorAll('.image');
+        images.forEach(async item => {
+            const random_first = Math.floor(Math.random() * 1800) + 200;
+            const random_second = Math.floor(Math.random() * 1800) + 200;
+            var response = await fetch('https://source.unsplash.com/random/'+random_first+'x'+random_second);
+            console.log(response);
+            item.style.background = "url('" + response['url'] + "')";
+        })
+
+        const logo = document.querySelector('#logo');
+        logo.classList.add('intro-scene');
+        setTimeout(() => {
+            document.querySelector('#intro h1').classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#intro p').classList.remove('hidden');
+                setTimeout(() => {
+                    document.querySelector('#intro button').classList.remove('hidden');
+                    setTimeout(() => {
+                        document.querySelector('#intro').classList.add('add-transition');
+                        document.querySelector('#intro').classList.add('hidden');
+                        setTimeout(() => {
+                            document.querySelector('#intro').classList.add('no-display');
+                            setTimeout(() => {
+                                logo.classList.add('intro-scene-done');
+                                document.querySelector('#intro-options').classList.remove('hidden');
+                                document.querySelector('#logo').classList.add('reveal');
+                            }, 500)
+                        }, 500)
+                    }, 1000)
+                }, 500)
+            }, 500)
+        }, 500)
+    </script>
+</body>
+</html>

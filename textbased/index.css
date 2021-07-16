@@ -1,0 +1,161 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(60deg, green, rgb(5, 67, 5), black);
+    color: white;
+}
+.borderline-button {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    transition: .5s ease;
+    cursor: pointer;
+}
+.borderline-button:hover {
+    background: white;
+    color: black;
+}
+#intro {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center;
+    background: none;
+    z-index: 2;
+}
+#intro h1, p, button {
+    background: none;
+    transition: .5s ease;
+}
+.hidden {
+    opacity: 0;
+    user-select: none;
+}
+.no-display {
+    opacity: 0;
+    user-select: none;
+    z-index: -10000;
+    display: none;
+}
+#intro-options {
+    width: 100%;
+    height: 99vh;
+    position: absolute;
+    background: transparent;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: .5s ease;
+}
+#intro-options .container {
+    float: left;
+    text-align: center;
+    position: relative;
+    width: 25%;
+    height: 100%;
+    background: black;
+    cursor: pointer;
+    transition: .5s ease;
+}
+#intro-options .container:hover {
+    background: transparent;
+}
+#intro-options .info-container {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+.info-container hr {
+    width: 50%;
+}
+.info-container p {
+    font-family: 'Times New Roman', Times, serif;
+}
+#logo {
+    position: absolute;
+}
+.intro-scene {
+    top: 40%;
+    right: 50%;
+    transform: translateX(50%);
+    transition: .5s ease;
+    z-index: 3;
+}
+.intro-scene-done {
+    top: 5%;
+}
+.add-transition {
+    transition: .5s ease;
+}
+.scrollable {
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.scrollable::-webkit-scrollbar {
+    display: none;
+}
+.scrollable-item {
+    height: 20em;
+    width: 100%;
+    text-align: left;
+    color: white;
+    padding: 2em;
+    box-sizing: border-box;
+    position: relative;
+}
+.scrollable-item strong, h3 {
+    z-index: 5;
+    position: relative;
+}
+.scrollable-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    z-index: 4;
+    background:rgb(5, 67, 5);
+    transition: .5s ease;
+}
+.scrollable-cover:hover {
+    background: transparent;
+}
+.scrollable-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.scrollable-info {
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .5s ease;
+}
+.image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blog .scrollable-item {
+    background: white;
+    color: gray;
+    border-bottom: 1px solid gray;
+}
+.blog .scrollable-item:last-child {
+    border-bottom: none;
+}
+.blog .scrollable-item:hover {
+    color: darkgreen;
+}
