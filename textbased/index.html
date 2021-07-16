@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Based | Praticing Frontend</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <strong id="logo">LOGO</strong>
@@ -80,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="container scrollable">
+        <div class="container">
             <div class="info-container">
                 <h2>Section Title</h2>
                 <hr>
@@ -92,11 +96,22 @@
 
         const scrollables = document.querySelectorAll('.scrollable');
         scrollables.forEach(item => {
+            var scrollable_info = item.querySelector('.scrollable-info');
+            const scrollable_container = item.querySelector('.scrollable-container');
+            var scrollable_end_height = Math.floor(scrollable_info.clientHeight - ((scrollable_container.clientHeight * 15) / 100));
+            scrollable_end_height -= 10;
+            console.log('Scrollable end height: ', scrollable_end_height);
+
             item.addEventListener('mouseenter', function() {
                 item.querySelector('.scrollable-container .scrollable-info').style.top = "85%";
             })
             item.addEventListener('mouseleave', function() {
                 item.querySelector('.scrollable-container .scrollable-info').style.top = "90%";
+            })
+            item.addEventListener('scroll', function() {
+                if (item.scrollTop > scrollable_end_height) {
+                    alert('Bottom has been reached');
+                }
             })
         })
 
@@ -105,7 +120,6 @@
             const random_first = Math.floor(Math.random() * 1800) + 200;
             const random_second = Math.floor(Math.random() * 1800) + 200;
             var response = await fetch('https://source.unsplash.com/random/'+random_first+'x'+random_second);
-            console.log(response);
             item.style.background = "url('" + response['url'] + "')";
         })
 

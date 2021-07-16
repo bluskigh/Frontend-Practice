@@ -8,6 +8,14 @@ body {
     background: linear-gradient(60deg, green, rgb(5, 67, 5), black);
     color: white;
 }
+h1, h2, h3, h4, h5, h6, strong {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .borderline-button {
     border: 1px solid white;
     background: transparent;
