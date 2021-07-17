@@ -1,3 +1,6 @@
+:root {
+    scroll-behavior: smooth;
+}
 html, body, nav, ul, h1, h2, h3, h4, h5, h6, p, header {
     margin: 0;
     padding: 0;
@@ -82,9 +85,9 @@ main {
 }
 .image {
     height: 30em;
-    background: url('https://images.unsplash.com/photo-1626290232035-5ee5c46ad7b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNjU0MTg5NA&ixlib=rb-1.2.1&q=80&w=1080');
-    background-position: center;
-    background-size: cover;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     position: relative;
 }
 .image a {

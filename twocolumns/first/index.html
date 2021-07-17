@@ -31,19 +31,19 @@
     </header>
     <main>
         <section class="row">
-            <div class="half image">
+            <div class="half image" style="background: url('yellowblanket.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
-            <div class="half image">
+            <div class="half image" style="background: url('blue.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
@@ -51,69 +51,69 @@
         <section class="row total" style="display: flex; box-sizing: border-box; padding: 2em 1em; font-size: 2em; position: relative; align-items: flex-start; justify-content: center;">
             <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a> 
             <div style="min-width: 10%; position: relative;">
-                <a href="#" class="arrow hundred-a">-&gt;</a>
+                <a href="#" class="arrow hundred-a">&rarr;</a>
             </div>
         </section>
         <section class="row">
-            <div class="half image">
+            <div class="half image" style="background: url('two.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
-            <div class="half image">
+            <div class="half image" style="background: url('yellowblanket.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
-                    </div>
-                </aside>
-            </div>
-        </section>
-        <section class="row">
-            <div class="half image">
-                <aside>
-                    <a href="#">Lorem Ipsum</a>
-                    <div>
-                        <a href="#" class="arrow">-&gt;</a>
-                    </div>
-                </aside>
-            </div>
-            <div class="half image">
-                <aside>
-                    <a href="#">Lorem Ipsum</a>
-                    <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
         </section>
         <section class="row">
-            <div class="half image">
+            <div class="half image" style="background: url('two.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
-            <div class="half image">
+            <div class="half image" style="background: url('blue.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
         </section>
         <section class="row">
-            <div class="total image">
+            <div class="half image" style="background: url('yellowblanket.jpg');">
                 <aside>
                     <a href="#">Lorem Ipsum</a>
                     <div>
-                        <a href="#" class="arrow">-&gt;</a>
+                        <a href="#" class="arrow">&rarr;</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="half image" style="background: url('two.jpg');">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">&rarr;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="row">
+            <div class="total image" style="background: url('blue.jpg');">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">&rarr;</a>
                     </div>
                 </aside>
             </div>
@@ -125,7 +125,7 @@
             <li>LOREM IPSUM</li>
             <li>LOREM IPSUM</li>
         </ul>
-        <a href="#">&uparrow;</a>
+        <a href="#" class="uparrow">&uparrow;</a>
         <ul>
             <p>Lorem ipsum dolor</p>p
             <li>ICON</li>
@@ -135,6 +135,10 @@
         </ul>
     </footer>
     <script>
+        document.querySelector('.uparrow').addEventListener('click', function() {
+            window.scrollTo(0, 0);
+        })
+
         const details_container = document.querySelector('.navigation-options');
         const details = details_container.querySelector('details');
         details_container.addEventListener('click', function() {
