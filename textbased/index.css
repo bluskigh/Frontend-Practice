@@ -1,3 +1,6 @@
+:root {
+    scroll-behavior: smooth;
+}
 body, html {
     margin: 0;
     padding: 0;
@@ -5,7 +8,8 @@ body, html {
 body {
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(60deg, green, rgb(5, 67, 5), black);
+    background: rgb(14,0,255);
+    background: linear-gradient(10deg, rgba(14,0,255,1) 0%, rgba(110,20,190,1) 47%, rgba(255,0,170,1) 100%); 
     color: white;
 }
 h1, h2, h3, h4, h5, h6, strong {
@@ -15,17 +19,13 @@ h1, h2, h3, h4, h5, h6, strong {
 p {
     font-family: 'Times New Roman', Times, serif;
 }
-
-.borderline-button {
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    transition: .5s ease;
-    cursor: pointer;
+#intro h1 {
+    font-size: 3em;
+    margin: 0;
 }
-.borderline-button:hover {
-    background: white;
-    color: black;
+#intro p {
+    margin-top: 0;
+    font-size: 1.5em;
 }
 #intro {
     position: absolute;
@@ -36,7 +36,7 @@ p {
     background: none;
     z-index: 2;
 }
-#intro h1, p, button {
+#intro h1, p {
     background: none;
     transition: .5s ease;
 }
@@ -66,9 +66,13 @@ p {
     position: relative;
     width: 25%;
     height: 100%;
-    background: black;
+    background: rgb(3, 3, 82);
     cursor: pointer;
     transition: .5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #intro-options .container:hover {
     background: transparent;
@@ -87,6 +91,7 @@ p {
 }
 #logo {
     position: absolute;
+    filter: invert(100%);
 }
 .intro-scene {
     top: 40%;
@@ -106,6 +111,7 @@ p {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
 }
 .scrollable::-webkit-scrollbar {
     display: none;
@@ -129,9 +135,9 @@ p {
     left: 0;
     height: 100%;
     width: 100%;
-    opacity: .5;
+    opacity: .7;
     z-index: 4;
-    background:rgb(5, 67, 5);
+    background: #793e09;
     transition: .5s ease;
 }
 .scrollable-cover:hover {
@@ -166,4 +172,27 @@ p {
 }
 .blog .scrollable-item:hover {
     color: darkgreen;
+}
+.scrollable-actions {
+    position: sticky;
+    top: 93%;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    background: black;
+    color: white;
+    border-radius: 1em;
+    z-index: 10;
+    padding: 1em;
+    transition: .5s ease;
+}
+.scrollable-actions a {
+    user-select: none;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.3em;
+    color: white;
+}
+.scrollable-actions a:hover {
+    opacity: .5;
 }

@@ -12,11 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <strong id="logo">LOGO</strong>
+    <img src="monkey.svg" id="logo" alt="Logo Monkey Picture" width="30px" height="30px">
     <section id="intro">
         <h1 class="hidden">Lorem Ipsum</h1>
         <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> 
-        <button class="borderline-button hidden">Continue</button>
     </section>
     <section id="intro-options" class="hidden">
         <div class="container">
@@ -27,6 +26,10 @@
             </div>
         </div>
         <div class="container scrollable">
+            <div class="scrollable-actions hidden">
+                <a href="#" class="downarrow">&ddarr;</a>
+                <a href="#" class="uparrow no-display">&uuarr;</a>
+            </div>
             <div class="info-container">
                 <h2>Section Title</h2>
                 <hr>
@@ -58,6 +61,10 @@
             </div>
         </div>
         <div class="container scrollable">
+            <div class="scrollable-actions hidden">
+                <a href="#" class="downarrow">&ddarr;</a>
+                <a href="#" class="uparrow no-display">&uuarr;</a>
+            </div>
             <div class="info-container">
                 <h2>Section Title</h2>
                 <hr>
@@ -96,22 +103,54 @@
 
         const scrollables = document.querySelectorAll('.scrollable');
         scrollables.forEach(item => {
+            const scrollable_actions = item.querySelector('.scrollable-actions');
+            const uparrow = item.querySelector('.uparrow');
+            const downarrow = item.querySelector('.downarrow');
+            uparrow.addEventListener('click', function() {
+                item.scrollTo(0, 0);
+            })
+            downarrow.addEventListener('click', function() {
+                item.scrollTo(0, 100000);
+            })
+
             var scrollable_info = item.querySelector('.scrollable-info');
             const scrollable_container = item.querySelector('.scrollable-container');
             var scrollable_end_height = Math.floor(scrollable_info.clientHeight - ((scrollable_container.clientHeight * 15) / 100));
-            scrollable_end_height -= 10;
+            scrollable_end_height -= 1;
             console.log('Scrollable end height: ', scrollable_end_height);
 
             item.addEventListener('mouseenter', function() {
+                scrollable_actions.classList.remove('hidden');
                 item.querySelector('.scrollable-container .scrollable-info').style.top = "85%";
             })
             item.addEventListener('mouseleave', function() {
+                scrollable_actions.classList.add('hidden');
                 item.querySelector('.scrollable-container .scrollable-info').style.top = "90%";
             })
             item.addEventListener('scroll', function() {
-                if (item.scrollTop > scrollable_end_height) {
-                    alert('Bottom has been reached');
+                if (item.scrollTop < scrollable_end_height && item.scrollTop > 10) {
+                    if (downarrow.classList.contains('no-display')) {
+                        downarrow.classList.remove('no-display');
+                    }
+                    if (uparrow.classList.contains('no-display')) {
+                        uparrow.classList.remove('no-display');
+                    }
                 }
+                if (item.scrollTop > 10) {
+                    if (uparrow.classList.contains('no-display')) {
+                        uparrow.classList.toggle('no-display');
+                    }
+                }
+                if (item.scrollTop < 10) {
+                    if (!uparrow.classList.contains('no-display')) {
+                        uparrow.classList.toggle('no-display');
+                    }
+                }
+                if (item.scrollTop > scrollable_end_height) {
+                    if (!downarrow.classList.contains('no-display')) {
+                        downarrow.classList.add('no-display');
+                    }
+                } 
             })
         })
 
@@ -130,7 +169,6 @@
             setTimeout(() => {
                 document.querySelector('#intro p').classList.remove('hidden');
                 setTimeout(() => {
-                    document.querySelector('#intro button').classList.remove('hidden');
                     setTimeout(() => {
                         document.querySelector('#intro').classList.add('add-transition');
                         document.querySelector('#intro').classList.add('hidden');
