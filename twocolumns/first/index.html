@@ -1,0 +1,171 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First | FrontendPractic</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- for now the symbols are not gonig to be html entity codes -->
+            <h2>COMPANY NAME|*=</h2>
+            <ul class="navigation-list">
+                <!-- for now the hamburger entity code is going to be 3 | -->
+                <li class="hamburger"><a href="#">|||</a></li>
+                <!-- make this downarrow list item be clickable which shows multiple options -->
+                <li class="navigation-options">
+                    <details style="width: 100%; height: 100%; position: relative;">
+                        <summary>DRK</summary>
+                        <ul class="details-options">
+                            <li>SOMETHING</li>
+                            <li>SOMETHING</li>
+                            <li>SOMETHING</li>
+                        </ul>
+                    </details>
+                </li>
+                <li class="basket"><a href="#">B</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="row">
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="row total" style="display: flex; box-sizing: border-box; padding: 2em 1em; font-size: 2em; position: relative; align-items: flex-start; justify-content: center;">
+            <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a> 
+            <div style="min-width: 10%; position: relative;">
+                <a href="#" class="arrow hundred-a">-&gt;</a>
+            </div>
+        </section>
+        <section class="row">
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="row">
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="row">
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+            <div class="half image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="row">
+            <div class="total image">
+                <aside>
+                    <a href="#">Lorem Ipsum</a>
+                    <div>
+                        <a href="#" class="arrow">-&gt;</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <footer style="display: flex; align-items: center; justify-content: space-between;">
+        <ul>
+            <li>lorem</li>
+            <li>LOREM IPSUM</li>
+            <li>LOREM IPSUM</li>
+        </ul>
+        <a href="#">&uparrow;</a>
+        <ul>
+            <p>Lorem ipsum dolor</p>p
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+            <li>ICON</li>
+        </ul>
+    </footer>
+    <script>
+        const details_container = document.querySelector('.navigation-options');
+        const details = details_container.querySelector('details');
+        details_container.addEventListener('click', function() {
+            details.open = !details.open;
+        })
+        details.addEventListener('click', function(e) {
+            // since when the li is being clicked, we are inverting the current open state,
+            // but if the user clicks directly on the summary (what makes the detail show details)
+            // then it will revert what the li chagned, thus being 
+            // original: true -> li change -> false -> default behavior of statement on click -> true
+            e.preventDefault();
+        })
+
+        const images = document.querySelectorAll('.image');
+        for (const image of images) {
+            const arrow = image.querySelector('.arrow');
+            image.addEventListener('mouseenter', function() {
+                arrow.style.left = "15%";
+            })
+            image.addEventListener('mouseleave', function() {
+                arrow.style.left = "5%";
+            })
+        }
+        const total = document.querySelector('.total');
+        total.addEventListener('mouseenter', function() {
+            total.querySelector('.hundred-a').style.left = "5%";
+        })
+        total.addEventListener('mouseleave', function() {
+            total.querySelector('.hundred-a').style.left = "2%";
+        })
+    </script>
+
+</body>
+</html>
